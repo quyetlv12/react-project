@@ -44,6 +44,9 @@ class Textbox extends Component {
     this.setState({ name: this.state.task.name });
     console.log(this.state.task.name);
   };
+  checkTask = (e) => {
+    alert("bạn đã đánh dấu cống việc");
+  };
   render() {
     const colorText = {
       color: "blue",
@@ -84,6 +87,7 @@ class Textbox extends Component {
                   value={task.name}
                   deleteTask={this.deleTask}
                   editTask={this.editTask}
+                  checkTask={this.checkTask}
                 ></ListTask>
               );
             })
