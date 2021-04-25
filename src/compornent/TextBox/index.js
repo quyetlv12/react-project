@@ -11,6 +11,8 @@ class Textbox extends Component {
     // console.log(this.state.taskName);
   };
   addTask = () => {
+    // const list = []
+    // list = JSON.parse(localStorage.setItem("todo",list))
     if (this.state.taskName === "") {
       alert("vui lòng nhập task");
     } else {
@@ -27,10 +29,13 @@ class Textbox extends Component {
     this.setState({ taskName: "" });
   };
   render() {
+    const colorText = {
+      color : "blue"
+    }
     return (
       <div className="container mt-5">
         <div className="d-flex justify-content-center">
-          <h1>TODO LIST</h1>
+          <h1 style={colorText}>TODO LIST</h1>
         </div>
         <div className="row">
           <div className="col-10">
@@ -43,7 +48,7 @@ class Textbox extends Component {
           </div>
           <div className="col-2">
             <button className="btn btn-primary w-100" onClick={this.addTask}>
-              Thêm
+              Thêm công việc
             </button>
           </div>
         </div>

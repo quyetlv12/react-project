@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100&display=swap");
+body {
+  font-family: "Antonio", sans-serif;
+}
 .App {
   text-align: center;
 }
@@ -35,7 +39,7 @@
     transform: rotate(360deg);
   }
 }
-li{
+li {
   list-style: none;
   text-align: left;
 }
