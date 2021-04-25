@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100&display=swap");
 body {
   font-family: "Antonio", sans-serif;
+  background-color: #e7e7e7;
 }
 .App {
   text-align: center;

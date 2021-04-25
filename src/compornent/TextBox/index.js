@@ -4,7 +4,19 @@ import ListTask from "../ListTask";
 class Textbox extends Component {
   constructor(props) {
     super(props);
-    this.state = { taskName: "", task: [] };
+    this.state = {
+      taskName: "",
+      task: [
+        {
+          id: 1,
+          name: "1122",
+        },
+        {
+          id: 2,
+          name: "1tg22",
+        },
+      ],
+    };
   }
   myChangeHandler = (event) => {
     this.setState({ taskName: event.target.value });
@@ -28,25 +40,31 @@ class Textbox extends Component {
     console.log(this.state.task);
     this.setState({ taskName: "" });
   };
+  editTask = (e) => {
+    this.setState({ name: this.state.task.name });
+    console.log(this.state.task.name);
+  };
   render() {
     const colorText = {
-      color : "blue"
-    }
+      color: "blue",
+      fontsize: 20,
+    };
     return (
       <div className="container mt-5">
         <div className="d-flex justify-content-center">
           <h1 style={colorText}>TODO LIST</h1>
         </div>
         <div className="row">
-          <div className="col-10">
+          <div className="col-lg-10 col-md-12">
             <input
+              placeholder="Nhập công việc ..."
               type="text"
               value={this.state.taskName}
               className="form-control"
               onChange={this.myChangeHandler}
             />
           </div>
-          <div className="col-2">
+          <div className="col-lg-2 col-md-12">
             <button className="btn btn-primary w-100" onClick={this.addTask}>
               Thêm công việc
             </button>
@@ -65,6 +83,7 @@ class Textbox extends Component {
                   id={index}
                   value={task.name}
                   deleteTask={this.deleTask}
+                  editTask={this.editTask}
                 ></ListTask>
               );
             })

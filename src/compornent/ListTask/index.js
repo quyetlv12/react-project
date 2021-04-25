@@ -17,7 +17,7 @@ export default class ListTask extends Component {
             >
               <i className="fas fa-trash"></i>
             </button>
-            <button className="btn btn-success">
+            <button className="btn btn-success" onClick={()=>{this.props.editTask(this.props.id)}}>
               <i className="fas fa-edit"></i>
             </button>
           </div>
