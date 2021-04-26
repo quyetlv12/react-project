@@ -1,29 +1,29 @@
 import React, { Component } from "react";
 import ListTask from "../ListTask";
-import "./style.css";
+import "./style.scss";
 class Textbox extends Component {
   constructor(props) {
     super(props);
+    const listinit = JSON.parse(localStorage.getItem("todo"))
     this.state = {
       taskName: "",
-      task: [],
+      task: [...listinit],
     };
   }
   myChangeHandler = (event) => {
     this.setState({ taskName: event.target.value });
-    // console.log(this.state.taskName);
   };
   addTask = () => {
-    // const list = []
-    // list = JSON.parse(localStorage.setItem("todo",list))
     if (this.state.taskName === "") {
       alert("vui lòng nhập task");
     } else {
       const id = this.state.task.length;
       const name = this.state.taskName;
-      const done = false
-      this.state.task.push({ id, name, done : done });
+      const done = false;
+      this.state.task.push({ id, name, done: done });
       this.setState({ taskName: "" });
+      const list = [...this.state.task]
+      localStorage.setItem("todo", JSON.stringify(list))
       console.log(this.state.task);
     }
   };
@@ -31,6 +31,7 @@ class Textbox extends Component {
     const task = this.state.task.filter((task) => task.id !== id);
     console.log(this.state.task);
     this.setState({ task });
+    localStorage.setItem("todo",JSON.stringify(task))
   };
   editTask = (e) => {
     this.setState({ name: this.state.task.name });
@@ -38,15 +39,14 @@ class Textbox extends Component {
   };
   checkTask = (id) => {
     const tasks = this.state.task;
-    
-    tasks.forEach(task => {
+
+    tasks.forEach((task) => {
       if (task.id === id) {
         task.done = true;
       }
     });
     this.setState({ tasks });
     console.log(tasks);
-
   };
   render() {
     return (
@@ -62,7 +62,10 @@ class Textbox extends Component {
             />
           </div>
           <div className="col-lg-2 col-md-12">
-            <button className="btn btn-primary w-100" onClick={this.addTask}>
+            <button
+              className="btn btn-primary w-100 btn-add-todo"
+              onClick={this.addTask}
+            >
               Thêm công việc
             </button>
           </div>

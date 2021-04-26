@@ -9,8 +9,8 @@ export default class Footer extends Component {
                 </div>
                 <div className="d-flex justify-content-center">
                 <div className="fs-1 p-2 text-primary"><a href="https://www.facebook.com/LvQ12fox/"><i class="fab fa-facebook-square"></i></a></div>
-                <div className="fs-1 p-2"><i class="fab fa-github"></i></div>
-                <div className="fs-1 p-2"><i class="fab fa-instagram"></i></div>
+                <div className="fs-1 p-2"><i className="fab fa-github"></i></div>
+                <div className="fs-1 p-2"><i className="fab fa-instagram"></i></div>
                 </div>
             </footer>
         )
