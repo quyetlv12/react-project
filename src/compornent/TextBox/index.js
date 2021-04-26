@@ -40,7 +40,7 @@ class Textbox extends Component {
     const tasks = this.state.task;
     
     tasks.forEach(task => {
-      if (task.id == id) {
+      if (task.id === id) {
         task.done = true;
       }
     });
