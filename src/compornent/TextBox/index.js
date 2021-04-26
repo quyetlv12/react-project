@@ -4,6 +4,9 @@ import "./style.scss";
 class Textbox extends Component {
   constructor(props) {
     super(props);
+    if(localStorage.getItem("todo") == null){
+      localStorage.setItem("todo",JSON.stringify([]))
+    }
     const listinit = JSON.parse(localStorage.getItem("todo"))
     this.state = {
       taskName: "",
@@ -49,6 +52,7 @@ class Textbox extends Component {
     console.log(tasks);
   };
   render() {
+  
     return (
       <div className="container mt-5">
         <div className="row">
