@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ListTask from "../ListTask";
-
+import './style.css'
 class Textbox extends Component {
   constructor(props) {
     super(props);
@@ -44,19 +44,10 @@ class Textbox extends Component {
     this.setState({ name: this.state.task.name });
     console.log(this.state.task.name);
   };
-  checkTask = (e) => {
-    alert("bạn đã đánh dấu cống việc");
-  };
+  checkTask = (e) => {};
   render() {
-    const colorText = {
-      color: "blue",
-      fontsize: 20,
-    };
     return (
       <div className="container mt-5">
-        <div className="d-flex justify-content-center">
-          <h1 style={colorText}>TODO LIST</h1>
-        </div>
         <div className="row">
           <div className="col-lg-10 col-md-12">
             <input

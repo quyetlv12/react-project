@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import './style.css';
 export default class ListTask extends Component {
   constructor(props) {
     super(props);
@@ -8,7 +8,7 @@ export default class ListTask extends Component {
   render() {
     return (
       <ul className="mt-3 px-3">
-        <li className="d-flex justify-content-between">
+        <li className="d-flex justify-content-between bg-white p-4">
           <span><input type="checkbox" className="form-check-input" onClick={()=>{this.props.checkTask(this.id)}}/> {this.props.value}</span>{" "}
           <div>
             <button
