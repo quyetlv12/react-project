@@ -9,7 +9,7 @@ export default class ListTask extends Component {
     return (
       <ul className="mt-3 px-3">
         <li className="d-flex justify-content-between bg-white p-4">
-          <span><input type="checkbox" className="form-check-input" onClick={()=>{this.props.checkTask(this.id)}}/> {this.props.value}</span>{" "}
+          <span><input type="checkbox" className="form-check-input" onClick={()=>{this.props.checkTask(this.props.id)}}/> {this.props.value}</span>{" "}
           <div>
             <button
               className="btn btn-danger"

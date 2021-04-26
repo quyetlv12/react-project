@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
 html {
   box-sizing: border-box;
 }
@@ -32,7 +32,7 @@ img {
   max-width: 100%;
 }
 body {
-  font-family: "Antonio", sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #e7e7e7;
 }
 .App {

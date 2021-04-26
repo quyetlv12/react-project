@@ -1,21 +1,12 @@
 import React, { Component } from "react";
 import ListTask from "../ListTask";
-import './style.css'
+import "./style.css";
 class Textbox extends Component {
   constructor(props) {
     super(props);
     this.state = {
       taskName: "",
-      task: [
-        {
-          id: 1,
-          name: "1122",
-        },
-        {
-          id: 2,
-          name: "1tg22",
-        },
-      ],
+      task: [],
     };
   }
   myChangeHandler = (event) => {
@@ -30,21 +21,33 @@ class Textbox extends Component {
     } else {
       const id = this.state.task.length;
       const name = this.state.taskName;
-      this.state.task.push({ id, name });
+      const done = false
+      this.state.task.push({ id, name, done : done });
       this.setState({ taskName: "" });
+      console.log(this.state.task);
     }
   };
-  deleTask = (e) => {
-    console.log(e);
-    this.state.task.splice(e, 1);
+  deleTask = (id) => {
+    const task = this.state.task.filter((task) => task.id !== id);
     console.log(this.state.task);
-    this.setState({ taskName: "" });
+    this.setState({ task });
   };
   editTask = (e) => {
     this.setState({ name: this.state.task.name });
     console.log(this.state.task.name);
   };
-  checkTask = (e) => {};
+  checkTask = (id) => {
+    const tasks = this.state.task;
+    
+    tasks.forEach(task => {
+      if (task.id == id) {
+        task.done = true;
+      }
+    });
+    this.setState({ tasks });
+    console.log(tasks);
+
+  };
   render() {
     return (
       <div className="container mt-5">
@@ -73,8 +76,8 @@ class Textbox extends Component {
             this.state.task.map((task, index) => {
               return (
                 <ListTask
-                  key={index}
-                  id={index}
+                  key={task.id}
+                  id={task.id}
                   value={task.name}
                   deleteTask={this.deleTask}
                   editTask={this.editTask}
