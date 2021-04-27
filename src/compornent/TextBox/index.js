@@ -42,13 +42,13 @@ class Textbox extends Component {
   };
   checkTask = (id) => {
     const tasks = this.state.task;
-
     tasks.forEach((task) => {
       if (task.id === id) {
         task.done = true;
       }
     });
     this.setState({ tasks });
+    localStorage.setItem("todo",JSON.stringify(tasks))
     console.log(tasks);
   };
   render() {
